@@ -1,0 +1,23 @@
+{% extends "STARKE_APP/padre.html" %}
+{% block header %}
+<ul class="menu" id="menu">
+    <li><a href="#">Clientes</a></li>
+    <li><a href="#">Ganancias</a></li>
+    <li><a href="#">Turnos</a></li>
+    <li><a href="#">Locales</a></li>
+  </ul>
+  {% endblock %}
+{% load static %}
+
+{% block main %}
+<div class="box">
+  <div class="container-1">
+    <form method = "get">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="text" id="search" placeholder="Buscar..." name = 'buscar' />
+      
+        </form>
+  </div>
+</div>
+>
+{% endblock %}

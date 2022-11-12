@@ -1,0 +1,52 @@
+{% extends "STARKE_APP/clientes/formulario_padre.html" %}
+
+  {{ messages }}
+ 
+  <div class="grid_main-container">
+    <div class="main_flex">
+
+      {% block main %}
+      <form class ="form_datos" action="{% url 'ficha_tecnica' form_2.id %}" , method = "POST">{% csrf_token %}
+
+{{ form_2.id }}
+
+        <div class="form-group">
+          <label><p>D.N.I:</p></label>
+          {{ form.dni }}
+        </div>
+        <div class="form-group">
+          <label><p>Persona:</p></label>
+          {{ form.persona }}
+      </div>
+        <div class="form-group">
+          <label><p>Peso:</p></label>
+          {{ form.peso }}
+      </div>
+      <div class="form-group">
+          <label><p>Altura:</p></label>
+          {{ form.altura }}
+      </div>
+      <div class="form-group">
+          <label><p>¿Tiene algun problema de salud?:</p></label>
+          {{ form.pregunta_1 }}
+      </div>
+      <div class="form-group">
+          <label><p>¿Tiene dificultad para respirar?:</p> </label>
+          {{ form.pregunta_2 }}
+       </div>
+        <div class="form-group">
+        <label><p>¿Tiene en la espalda?: </p></label>
+        {{ form.pregunta_3 }}
+         </div>
+        
+        <button type ="submit" class="boton">Guardar cambios</button>
+      </form>
+     
+    </div>
+
+  </div>
+ 
+  {% endblock %}
+  <!--<div class="grid_item grid_footer">footer</div>
+
+

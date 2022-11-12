@@ -1,0 +1,45 @@
+{% extends "STARKE_APP/padre.html" %}
+{% block header %}
+<ul class="menu" id="menu">
+    <li><a href="#">Clientes</a></li>
+    <li><a href="#">Ganancias</a></li>
+    <li><a href="#">Turnos</a></li>
+    <li><a href="#">Locales</a></li>
+  </ul>
+  {% endblock %}
+{% load static %}
+
+{% block main %}
+<div class="box">
+  <div class="container-1">
+    <form method = "get">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="text" id="search" placeholder="Buscar..." name = 'buscar' />
+      
+        </form>
+  </div>
+</div>
+<table>
+ 
+
+ 
+  
+
+  <tr>
+    <th>Nombre</th>  <th>Apellido</th> <th>Telefono</th>
+     
+  
+  </tr>
+  {% for i in form %}
+  
+  <tr>
+    <td> <a href="{% url 'detalle_cliente' i.id %}">{{ i.nombre }} </a></td>
+    <td>{{ i.apellido }}</td>
+    <td>{{ i.telefono }}</td>
+   
+    
+  </tr>
+
+  {% endfor %}
+</table>
+{% endblock %}

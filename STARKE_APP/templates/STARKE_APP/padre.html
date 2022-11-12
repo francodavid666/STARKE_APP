@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  
+  <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
+  <meta name="viewport" content="witdth=device-width, initial-scale=1.0 user scalable= no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="{% static 'STARKE_APP/css/sss.css' %}">
+  <!--<link rel="stylesheet" href="{% static 'STARKE_APP/css/MediaQueries.css' %}">
+  -->
+  <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+  <title>Starke.com</title>
+</head>
+
+                                       
+
+<body>
+
+  <header>
+
+
+    <nav class="grid_nav-container">
+
+      
+      <a href="{% url 'inicio' %}"><img src="{% static 'STARKE_APP/img/logo.png' %}" class="logo" name="logos" ></a>
+      {% block header %}
+      <ul class="menu" id="menu">
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Turnos</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Entrenamientos</a></li>
+      </ul>
+      {% endblock %}
+      <div class="menubar" id="menubar">
+        <img src= "{% static 'STARKE_APP/img/menubar.png' %}" alt="" width="50px">
+      </div>
+
+      <div class="carrito">
+        <img src="{% static 'STARKE_APP/img/carrito.png' %}" alt="" width="30px">
+      </div>
+
+    </nav>
+   
+  </header>
+  {% block contenido_medio %}
+  <div class="grid_main-container">
+    <div class="main_flex">
+      {% block main %}
+      <h1>CREA TU CUERPO IDEAL</h1>
+
+     
+      
+      <div class="texto_largo">
+        <h2>Si estas listo para cambiar tu vida, starke esta para ayudarte... ingresa y ve nuestas incripciones!.</h2>
+      </div>
+
+      <div class="texto_corto">
+        <h2>Si estas listo para cambiar tu vida. Ingresa y ve nuestas incripciones!.</h2>
+      </div>
+      <a href="{% url 'formulario_login' %}"><h3>Login</h3></a>
+      
+      {% endblock %}
+    </div>
+
+  </div>
+  {%  endblock %}
+  <!--<div class="grid_item grid_footer">footer</div>
+
+
+</div>-->
+  
+  <script src="{% static 'STARKE_APP/js/script.js' %}"></script>
+</body>
+
+
+</html>

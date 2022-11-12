@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta name="viewport" content="witdth=device-width, initial-scale=1.0 user scalable= no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="{% static 'STARKE_APP/css/styles_2.css' %}">
+  <!--<link rel="stylesheet" href="{% static 'STARKE_APP/css/MediaQueries.css' %}">
+  -->
+  <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+  <title>Starke.com</title>
+</head>
+
+                                       
+
+<body>
+
+  <header>
+
+
+    <nav class="grid_nav-container">
+
+      
+      <a href="{% url 'inicio' %}"><img src="{% static 'STARKE_APP/img/logo.png' %}" class="logo" name="logos" ></a>
+      
+      <ul class="menu" id="menu">
+        <li><a href="{% url 'clientes' %}">Clientes</a></li>
+        <li><a href="{% url 'add_cliente' %}">Añadir</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Entrenamientos</a></li>
+      </ul>
+     
+      <div class="menubar" id="menubar">
+        <img src= "{% static 'STARKE_APP/img/menubar.png' %}" alt="" width="50px">
+      </div>
+
+      <div class="carrito">
+        <img src="{% static 'STARKE_APP/img/carrito.png' %}" alt="" width="30px">
+      </div>
+
+    </nav>
+   
+  </header>
+  {{ messages }}
+ 
+  <div class="grid_main-container">
+    <div class="main_flex">
+
+      {% block main %}
+      <form class ="form_datos" action="{% url 'add_cliente' %}" , method = "POST">{% csrf_token %}
+
+
+        <div class="form-group">
+          <label><p>Nombre:</p></label>
+          {{ form.nombre }}
+      </div>
+      <div class="form-group">
+          <label><p>Apellido:</p></label>
+          {{ form.apellido }}
+      </div>
+      <div class="form-group">
+          <label><p>Fecha de nacimiento:</p></label>
+          {{ form.fecha_nac }}
+      </div>
+      <div class="form-group">
+          <label><p>Edad:</p> </label>
+          {{ form.edad }}
+       </div>
+        <div class="form-group">
+        <label><p>Genero: </p></label>
+        {{ form.Generos }}
+         </div>
+        <div class="form-group">
+        <label><p>Telefono:</p> </label>
+        {{ form.telefono }}
+        </div>
+        <div class="form-group">
+          <label><p>Telefono de emergencia:</p> </label>
+          {{ form.telefono_emergencia }}
+        </div>
+        <div class="form-group">
+          <label><p>Email:</p> </label>
+          {{ form.email }}
+        </div>
+        <div class="form-group">
+          <label><p>Red social:</p> </label>
+          {{ form.red_social }}
+        </div>
+        <button type ="submit" class="boton">Guardar cambios</button>
+      </form>
+     
+    </div>
+
+  </div>
+ 
+  {% endblock %}
+  <!--<div class="grid_item grid_footer">footer</div>
+
+
+</div>-->
+  
+  <script src="{% static 'STARKE_APP/js/script.js' %}"></script>
+</body>
+
+
+</html>

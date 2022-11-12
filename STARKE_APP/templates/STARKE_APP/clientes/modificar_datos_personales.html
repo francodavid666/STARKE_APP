@@ -1,0 +1,58 @@
+{% extends "STARKE_APP/clientes/formulario_padre.html" %}
+
+  {{ messages }}
+ 
+  <div class="grid_main-container">
+    <div class="main_flex">
+
+      {% block main %}
+      <form class ="form_datos" action="{% url 'modificar_datos_personales' id %}" , method = "POST">{% csrf_token %}
+
+
+        <div class="form-group">
+          <label><p>Nombre:</p></label>
+          {{ form.nombre }}
+      </div>
+      <div class="form-group">
+          <label><p>Apellido:</p></label>
+          {{ form.apellido }}
+      </div>
+      <div class="form-group">
+          <label><p>Fecha de nacimiento:</p></label>
+          {{ form.fecha_nac }}
+      </div>
+      <div class="form-group">
+          <label><p>Edad:</p> </label>
+          {{ form.edad }}
+       </div>
+        <div class="form-group">
+        <label><p>Genero: </p></label>
+        {{ form.Generos }}
+         </div>
+        <div class="form-group">
+        <label><p>Telefono:</p> </label>
+        {{ form.telefono }}
+        </div>
+        <div class="form-group">
+          <label><p>Telefono de emergencia:</p> </label>
+          {{ form.telefono_emergencia }}
+        </div>
+        <div class="form-group">
+          <label><p>Email:</p> </label>
+          {{ form.email }}
+        </div>
+        <div class="form-group">
+          <label><p>Red social:</p> </label>
+          {{ form.red_social }}
+        </div>
+        <button type ="submit" class="boton">Guardar cambios</button>
+      </form>
+     
+    </div>
+
+  </div>
+ 
+  {% endblock %}
+  <!--<div class="grid_item grid_footer">footer</div>
+
+

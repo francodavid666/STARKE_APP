@@ -1,0 +1,123 @@
+{% extends "STARKE_APP/padre.html" %}
+{% block header %}
+<ul class="menu" id="menu">
+    <li><a href="#">Clientes</a></li>
+
+    <li><a href="#">Modificar datos</a></li>
+    <li><a href="#">Locales</a></li>
+  </ul>
+  {% endblock %}
+{% load static %}
+
+{% block main %}
+
+{% for i in form %}
+<li><a href="{% url 'modificar_datos_personales' i.id %}">modificar</a></li>
+<li><a href="{% url 'eliminar_cliente' i.id %}">Eliminar</a></li>
+<li><a href="{% url 'ficha_tecnica' i.id %}">Ficha Tecnica</a></li>
+
+    <h2>{{ i.nombre }} {{ i.apellido }}</h2>
+    <br></br>
+    {% endfor %}
+
+    
+<table>
+ 
+
+ 
+  
+
+  <tr>
+    DATOS PERSONALES
+    <th>Nombre</th>  <th>Apellido</th> 
+    <th>Genero</th><th>Edad</th>
+    <th>Fecha nacimiento</th>
+
+    
+      
+     
+  
+  </tr>
+  {% for i in form %}
+  
+  <tr>
+    <td>{{ i.nombre }}</td>
+    <td>{{ i.apellido }}</td>
+    <td>{{ i.genero }}</td>
+    <td>{{ i.edad }}</td>
+    <td>{{ i.fecha_nac }}</td>
+    
+    
+    
+  </tr>
+
+  {% endfor %}
+
+
+
+
+</div>
+</div>
+<table>
+ 
+
+ 
+  <br></br>
+
+  <tr>
+   CONTACTO
+    <th>Telefono</th>  <th>Telefono de emergencia</th> <th>Email</th>
+    <th>Red social</th> 
+     
+  
+  </tr>
+  {% for i in form %}
+  
+  <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.telefono_emergencia }}</td>
+    <td>{{ i.email }}</td>
+    <td>{{ i.red_social }}</td>
+    
+  </tr>
+
+  {% endfor %}
+</table>
+
+
+
+
+<table>
+ 
+
+ 
+  <br></br>
+
+  <tr>
+   CONTACTO
+    <th>ID</th>  <th>Peso</th> <th>Altura</th>
+    <th>Pregunta 1</th> <th>Pregunta 2</th> <th>Pregunta 3</th>   
+     
+  
+  </tr>
+  
+  {% for i in form_2 %}
+  {% for e in form %}
+  {% if i.dni == e.dni %}
+  
+  <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.persona }}</td>
+    <td>{{ i.altura }}</td>
+    <td>{{ i.pregunta_1 }}</td>
+    <td>{{ i.pregunta_2 }}</td>
+    <td>{{ i.pregunta_3 }}</td>
+    
+  </tr>
+  
+
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</table>
+{% endblock %}

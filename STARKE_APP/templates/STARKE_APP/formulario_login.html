@@ -1,0 +1,24 @@
+{% extends "STARKE_APP/padre.html" %}
+{% load static %}
+
+{% block contenido_medio %}
+<div class="grid_main-container">
+    <div class="main_flex">
+       <h1>LLENA EL FORMULARIO</h1>
+  
+
+<form action="", method="POST">{% csrf_token %}
+
+  <table>
+      {{ formulario_p.as_table }}
+  </table>
+
+  <input type = "submit" value = "Guardar">
+
+</form>
+
+
+  </div>
+</div>
+    
+{%  endblock %}
