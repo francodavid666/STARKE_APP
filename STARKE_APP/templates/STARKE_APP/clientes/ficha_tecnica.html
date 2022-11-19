@@ -6,9 +6,11 @@
     <div class="main_flex">
 
       {% block main %}
-      <form class ="form_datos" action="{% url 'ficha_tecnica' form_2.id %}" , method = "POST">{% csrf_token %}
+      <form class ="form_datos" action="{% url 'ficha_tecnica' form_2.id form_2.nombre form_2.dni %}" , method = "POST">{% csrf_token %}
 
 {{ form_2.id }}
+{{ form_2.nombre }}
+{{ form_2.dni }}
 
         <div class="form-group">
           <label><p>D.N.I:</p></label>

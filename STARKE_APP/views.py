@@ -160,18 +160,18 @@ def eliminar_cliente(request,id):
      
         
    
-def ficha_tecnica (request,id):
+def ficha_tecnica (request,id,nombre,dni):
  if request.method =='POST':
-     cliente=Clientes_model.get(id=id)
+    
      formulario = fichaTec_form(request.POST)
-     formulario2 = Clientes_form(request.POST)
+     
      
      if formulario.is_valid():
          
-         info2=formulario2.cleaned_data
+        
          info=formulario.cleaned_data
          
-         cliente.id = info['id']
+     
          
          persona=info.get("persona")
          peso = info.get("peso")
@@ -189,15 +189,27 @@ def ficha_tecnica (request,id):
                                     pregunta_2=pregunta_2,
                                     pregunta_3=pregunta_3)    
     
-         ficha_1.save()
+         ficha_1.save(id)
          return redirect('inicio')
      else:
          messages.info(request,'Algo salio mal')
          return redirect('ficha_tecnica')
  
- form = fichaTec_form()
- formulario2=Clientes_form(initial={'dni':cliente.id})
- form_2=Clientes_model()
+ form = fichaTec_form() 
+ form_2=Clientes_model(id=id,nombre=nombre,dni=dni)
  return render (request,'STARKE_APP/clientes/ficha_tecnica.html',{'form':form,'form_2':form_2})
          
-    
+  
+         
+def busqueda_tec (request):
+    queryset = request.GET.get('buscar')
+    print(queryset)
+    form = Clientes_model.objects.filter(nombre = True)
+    if queryset:
+        form = Clientes_model.objects.filter(
+            Q(nombre__icontains=queryset) |
+            Q(apellido__icontains=queryset)
+        ).distinct()
+        return render (request,'STARKE_APP/clientes/clientes.html',{'form':form})
+
+    return render (request,'STARKE_APP/clientes/buscar_cliente.html',{'form':form})

@@ -12,5 +12,5 @@ urlpatterns = [
     path('detalle_cliente/<id>', detalle_cliente, name ='detalle_cliente'),
     path('modificar_datos_personales/<id>', modificar_datos_personales, name ='modificar_datos_personales'),
     path('eliminar_cliente/<id>', eliminar_cliente, name ='eliminar_cliente'),
-    path('ficha_tecnica/<id>',ficha_tecnica, name ='ficha_tecnica'),
+    path('ficha_tecnica/<id>/<nombre>/<dni>',ficha_tecnica, name ='ficha_tecnica'),
 ]

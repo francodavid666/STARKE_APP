@@ -14,7 +14,7 @@
 {% for i in form %}
 <li><a href="{% url 'modificar_datos_personales' i.id %}">modificar</a></li>
 <li><a href="{% url 'eliminar_cliente' i.id %}">Eliminar</a></li>
-<li><a href="{% url 'ficha_tecnica' i.id %}">Ficha Tecnica</a></li>
+<li><a href="{% url 'ficha_tecnica' i.id i.nombre i.dni %}">Ficha Tecnica</a></li>
 
     <h2>{{ i.nombre }} {{ i.apellido }}</h2>
     <br></br>
@@ -30,7 +30,7 @@
   <tr>
     DATOS PERSONALES
     <th>Nombre</th>  <th>Apellido</th> 
-    <th>Genero</th><th>Edad</th>
+    <th>DNI</th><th>Edad</th>
     <th>Fecha nacimiento</th>
 
     
@@ -43,7 +43,7 @@
   <tr>
     <td>{{ i.nombre }}</td>
     <td>{{ i.apellido }}</td>
-    <td>{{ i.genero }}</td>
+    <td>{{ i.dni }}</td>
     <td>{{ i.edad }}</td>
     <td>{{ i.fecha_nac }}</td>
     

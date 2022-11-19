@@ -37,6 +37,7 @@ class Clientes_form(forms.ModelForm):
          ),
          }
   
+ 
   
   
 class fichaTec_form(forms.ModelForm):
