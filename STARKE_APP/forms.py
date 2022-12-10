@@ -45,3 +45,10 @@ class fichaTec_form(forms.ModelForm):
   class Meta:
     model = FichaTec_model
     fields ='__all__'
+    
+    
+class pagos_form (forms.ModelForm):
+  
+  class Meta: 
+    model = Pagos_model
+    fields = '__all__'

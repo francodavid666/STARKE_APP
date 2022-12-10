@@ -1,5 +1,6 @@
 {% extends "STARKE_APP/clientes/formulario_padre.html" %}
 
+
   {{ messages }}
  
   <div class="grid_main-container">
@@ -49,8 +50,63 @@
           <label><p>Red social:</p> </label>
           {{ form.red_social }}
         </div>
+        <br></br>
+
+       # ficha_tecnica
+      
+            <div class="form-group_2">
+              <label><p>Red social:</p> </label>
+              {{ form.peso }}
+            </div>
+            <div class="form-group">
+              <label><p>Red social:</p> </label>
+              {{ form.altura }}
+            </div>
+            <div class="form-group">
+              <label><p>Red social:</p> </label>
+              {{ form.pregunta_1 }}
+            </div>
+            <div class="form-group">
+              <label><p>Red social:</p> </label>
+              {{ form.pregunta_2 }}
+            </div>
+            <div class="form-group">
+              <label><p>Red social:</p> </label>
+              {{ form.pregunta_3 }}
+            </div>
+        
+
+      # Pagos
+      <br></br>
+      <div class="form-group">
+        <label><p>Red social:</p> </label>
+        {{ form.fecha_inicio }}
+      </div>
+      <div class="form-group">
+        <label><p>Red social:</p> </label>
+        {{ form.modo_de_pago }}
+      </div>
+      <div class="form-group">
+        <label><p>Red social:</p> </label>
+        {{ form.plan }}
+      </div>
+      <div class="form-group">
+        <label><p>Red social:</p> </label>
+        {{ form.fecha_vencimiento }}
+      </div>
+      <div class="form-group">
+        <label><p>Red social:</p> </label>
+        {{ form.dias_de_entrenamiento }}
+      </div>
+      
+      
+
         <button type ="submit" class="boton">Guardar cambios</button>
       </form>
+
+
+
+   
      
     </div>
 

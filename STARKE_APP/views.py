@@ -68,7 +68,7 @@ def clientes (request):
 def add_cliente (request):
        
     if request.method == "POST":
-        formulario = Clientes_form(request.POST)
+        formulario = Pagos_model(request.POST)
         
         if formulario.is_valid():
             info= formulario.cleaned_data
@@ -83,7 +83,22 @@ def add_cliente (request):
             telefono_emergencia = info.get("telefono_emergencia")
             red_social = info.get("red_social")
             
-            persona_1 = Clientes_model(nombre=nombre,
+            #Ficha_tec
+            peso = info.get("peso")
+            altura = info.get("altura")
+            pregunta_1 = info.get("pregunta_1")
+            pregunta_2 = info.get("pregunta_2")
+            pregunta_3 = info.get("pregunta_3")
+            
+            #Pagos
+            fecha_inicio= info.get("fecha_inicio")
+            modo_de_pago = info.get ("modo_de_pago")
+            plan = info.get ("plan")
+            fecha_vencimiento = info.get ("fecha_nacimiento")
+            dias_de_entrenamiento = info.get("dias_de_entrenamiento")
+            
+            
+            persona_1 = Pagos_model(   nombre=nombre,
                                        apellido=apellido,
                                        dni=dni,
                                        fecha_nac=fecha_nac,
@@ -92,14 +107,28 @@ def add_cliente (request):
                                        Generos=Generos,
                                        telefono=telefono,
                                        telefono_emergencia=telefono_emergencia,
-                                       red_social=red_social)
+                                       red_social=red_social,
+                                       #Fichatec
+                                       peso=peso,
+                                       altura=altura,
+                                       pregunta_1=pregunta_1,
+                                       pregunta_2=pregunta_2,
+                                       pregunta_3=pregunta_3,
+                                       #Pagos
+                                       fecha_inicio = fecha_inicio,
+                                       modo_de_pago = modo_de_pago,
+                                       plan=plan,
+                                       fecha_vencimiento = fecha_vencimiento,
+                                       dias_de_entrenamiento = dias_de_entrenamiento,
+                                       
+                                       )
             persona_1.save()
             return render(request,"STARKE_APP/inicio.html" )
         else: 
          messages.info(request,'Algo salio mal')
          return redirect ('add_cliente')
     else:
-        form = Clientes_form()
+        form = pagos_form()
     return render(request,"STARKE_APP/clientes/add_cliente.html",{'form': form})    
 
     

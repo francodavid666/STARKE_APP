@@ -50,12 +50,12 @@ class FichaTec_model(Clientes_model):
       
     
      
-class Pagos_model(models.Model):
-     fecha_inicio= models.DateField()
+class Pagos_model(FichaTec_model):
+     fecha_inicio= models.DateField(null = True,blank=False)
      modo_de_pago=models.CharField(max_length=20, blank=False)
      plan = models.CharField(max_length=20, blank=False)  
-     fecha_vencimiento=models.DateField()
-     dias_de_entrenamiento=models.IntegerField()
+     fecha_vencimiento=models.DateField(null = True,blank=False)
+     dias_de_entrenamiento=models.IntegerField(null = True,blank=False)
      
     
 class Salud_model(models.Model):
